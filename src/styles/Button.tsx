@@ -11,14 +11,14 @@ interface CustomButtonProps extends ButtonOwnProps {
 
 
 export const CustomButton = styled(Button, {
-  shouldForwardProp: (prop) => !["active", "circleback", "circlecolor"].includes(prop as string)
-})<CustomButtonProps>(({ active, circleback, circlecolor }) => ({
+  shouldForwardProp: (prop) => !["active", "circleback"].includes(prop as string)
+})<CustomButtonProps>(({ active, circleback}) => ({
   backgroundColor: active ? "#f8a34d" : "#ffffff",
   border: active ? "2px solid #ee8900" : "2px solid #e0e0e0",
   color: active ? "#ffffff" : "#003056",
-  borderRadius: "6px",
+  borderRadius: "4px",
   padding: "8px 24px",
-  width: "250px",
+  width: "250px",  
   textTransform: "none",
   boxShadow: "0px 5px 12px rgb(0, 0, 0, 0.38)",
   fontFamily: "Roboto, Arial, sans-serif",
@@ -35,7 +35,7 @@ export const CustomButton = styled(Button, {
 
   // 🔹 Circle for startIcon
   "& .MuiButton-startIcon": {
-    marginRight: "13px",
+    marginRight: "10px",
     backgroundColor: circleback || "#f0f0f0",
     borderRadius: "50%",
     width: "40px",
@@ -44,10 +44,14 @@ export const CustomButton = styled(Button, {
     alignItems: "center",
     justifyContent: "center",
     border: "5px solid #ffba8b",
+    color: "#003056",
     "& svg": {
-      color: circlecolor || "#003056",
+      color: "#003056",
       fontSize: "30px",
     },
   },
+
+
+  
 }));
     

@@ -21,8 +21,9 @@ export default function MainPage() {
     { id: 3, label: "Asn", icon: <DescriptionIcon /> },
   ];
 
+   // handle click: set active button (no toggle off)
   const handleClick = (id: number) => {
-    setActiveButton((prev) => (prev === id ? null : id));
+    setActiveButton(id);
   };
 
   return (
