@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Modal from './components/Modal';
+import MyQue from './components/MyQue/MyQue';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Modal />
+    <MyQue />
   </StrictMode>,
 )
