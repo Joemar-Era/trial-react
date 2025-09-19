@@ -1,69 +1,33 @@
-import React from "react";
-import { Stack, Box, Typography, Button } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { useState } from "react";
+import { Button, Container, Stack } from "@mui/material";
 
-// Styled Components
-const Header = styled(Box)(() => ({
-  backgroundColor: "white",
-  color: "#003056",
-  padding: "20px 15px",
-  fontFamily: "Roboto, Helvetica, Arial, sans-serif", // small typo: "Roboto"
-  fontWeight: 15000, // number (not "px")
-  fontSize: "100px",
-}));
-
-const Container = styled(Stack)(({ theme }) => ({
-  gap: theme.spacing(2),
-}));
-
-const BottomRow = styled(Stack)(({ theme }) => ({
-  flexDirection: "row",
-  gap: theme.spacing(2),
-}));
-
-const Section = styled(Stack)(({ theme }) => ({
-  flex: 1,
-  gap: theme.spacing(1),
-  backgroundColor: theme.palette.grey[100],
-  padding: theme.spacing(2),
-  borderRadius: theme.shape.borderRadius,
-}));
+import ReusableModal from "../reusable/ReusableModal/ReusableModal";
+import { StyledTextfield } from "../styles/ModalStyles";
 
 export default function LayoutStyled() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <Container>
-      {/* Header */}
-      <Header>
-        <Typography variant="h6">Enrollment - Team</Typography>
-      </Header>
+      <Button variant="contained" onClick={() => setIsModalOpen(true)}>Open Modal</Button>
 
-      {/* Bottom: Two side-by-side stacks */}
-      <BottomRow>
-        <Section>
-          <Typography>Stack 1</Typography>
-          <Button variant="contained">Button 1</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-        </Section>
-
-        <Section>
-          <Typography>Stack 2</Typography>
-          <Button variant="outlined">Button A</Button>
-          <Button variant="outlined">Button B</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-          <Button variant="contained">Button 2</Button>
-        </Section>
-      </BottomRow>
+      <ReusableModal open={isModalOpen} onClose={() => setIsModalOpen(false)} title="Enrollment - Team">
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={4} justifyContent="space-evenly">
+          <Stack spacing={1} flex={1}>
+            <StyledTextfield label="Team Name" placeholder="Input" variant="outlined"  />
+            <StyledTextfield label="Team Name" placeholder="Input" variant="outlined"  />
+            <StyledTextfield label="Team Name" placeholder="Input" variant="outlined"  />
+            <StyledTextfield label="Team Name" placeholder="Input" variant="outlined"  />
+            <StyledTextfield label="Team Name" placeholder="Input" variant="outlined"  />
+            
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <StyledTextfield label="Team Name" placeholder="Input" variant="outlined"  />
+            <StyledTextfield label="Team Name" placeholder="Input" variant="outlined"  />
+            <StyledTextfield label="Team Name" placeholder="Input" variant="outlined"  />
+          </Stack>
+        </Stack>
+      </ReusableModal>
     </Container>
   );
 }
