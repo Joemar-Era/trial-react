@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import MyQue from './components/MyQue/MyQue';
+import Doors from './components/Doors/Doors';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MyQue />
+    <Doors />
   </StrictMode>,
 )
