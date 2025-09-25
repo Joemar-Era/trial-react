@@ -14,12 +14,13 @@ import {
 import { useState } from "react";
 
 interface ContainerProps {
-conNum: number;
-sKu: number;
+conID: number;
+sKuID: number;
 doorID: number;
+stagingID: number;
 }
 
-export default function MyQue({conNum,sKu}: ContainerProps) {
+export default function MyQue({conID,sKuID}: ContainerProps) {
   //------------------------ STATE ------------------------
   const [activeParents, setActiveParents] = useState<number[]>([]);
   const [activeChild, setActiveChild] = useState<{ parentId: number; childIndex: number } | null>(null);
@@ -72,7 +73,7 @@ export default function MyQue({conNum,sKu}: ContainerProps) {
                   </EndIcon>
                 }
               >
-                {conNum}
+                {conID}
               </ParentQueButton>
               <ParentRedBadge />
               <BlackBadge>1</BlackBadge>
@@ -95,7 +96,7 @@ export default function MyQue({conNum,sKu}: ContainerProps) {
                           active={childIsActive}
                           onClick={() => toggleChild(parentId, i)}
                         >
-                          {sKu}
+                          {sKuID}
                         </ChildQueButton>
                         <ChildRedBadge />
                       </Stack>
